@@ -1,0 +1,28 @@
+<div class="row m-0 slide-in-right">
+    <!------------OPTION SECTION START------------>
+    <div class="p-0 option-section"
+         *ngIf="step == 1 || step == -1"
+         [ngClass]="{'col-3': innerWidth > 1000, 'col-4': innerWidth < 1000, 'col-12': innerWidth < 768}">
+        <app-options (selectConfig)="startChat($event)"
+                     (clearTopicEvent)="clearTopic()"
+                     (documentSelected)="onDocumentSelected($event)"
+                     [innerWidth]="innerWidth">
+        </app-options>
+    </div>
+    <!------------OPTION SECTION END------------>
+
+    <!------------CHAT SECTION START------------>
+    <div class="p-0 slide-in-right"
+         *ngIf="step == 2 || step == -1"
+         [ngClass]="{'col-9': innerWidth > 1000, 'col-8': innerWidth < 1000, 'col-12': innerWidth < 768}">
+        <app-chat [language]="language"
+                  [topic]="topic"
+                  [topic_name]="topic_name"
+                  [activeChat]="topic_name.length > 0 ? true : false"
+                  [selectedDocument]="selectedDocument"
+                  [innerWidth]="innerWidth"
+                  (selectStepBack)="stepBack()">
+        </app-chat>
+    </div>
+    <!------------CHAT SECTION START------------>
+</div>

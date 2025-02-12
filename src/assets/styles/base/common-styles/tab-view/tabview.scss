@@ -1,0 +1,84 @@
+@import "../../../constants/fonts.scss";
+@import "../../../constants/colors.scss";
+
+::ng-deep{
+    .p-tabview-nav {
+        justify-content: center;
+        max-height: 46px;
+    }
+    .p-tabview .p-tabview-nav li {
+        width: 50%;
+        justify-content: center;
+        display: flex;
+    }
+    .plan .p-tabview .p-tabview-nav li {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+    .p-tabview-nav-content {
+        border-radius: 10px 10px 0px 0px;
+        border-right: 1px solid $newtoms-table-primary-font-color;
+        border-left: 1px solid $newtoms-table-primary-font-color;
+    }
+    .p-tabview .p-tabview-panels {
+        background: $newtoms-background-color;
+        border-bottom: 1px solid $newtoms-table-primary-font-color;
+        border-right: 1px solid $newtoms-table-primary-font-color;
+        border-left: 1px solid $newtoms-table-primary-font-color;
+    }
+
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link:hover {
+        background: #000000;
+    }
+
+
+    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+        border: none;
+        background: $newtoms-table-primary-font-color;
+        width: 100%;
+        justify-content: center;
+        border-radius: 0px;
+        border-color: $newtoms-table-primary-font-color;
+    }
+
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+        border: solid #F0F0F0;
+        border-color: transparent transparent #F0F0F0 transparent;
+        background: #F0F0F0;
+        padding: 1.25rem;
+        width: 100%;
+        justify-content: center;
+    }
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+        box-shadow: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .p-tabview .p-tabview-panels {
+            padding: 1.25rem 1rem;
+        }
+
+    }
+
+    @media only screen and (max-width: 576px) {
+        .p-tabview-nav {
+            display: -webkit-box !important;
+        }
+
+        .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 325px) {
+      .p-tabview .p-tabview-panels {
+          padding: 1.25rem 1rem;
+      }
+
+  }
+
+}

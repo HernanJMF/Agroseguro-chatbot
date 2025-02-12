@@ -1,0 +1,124 @@
+@import "../../../../../assets/styles/base/common-styles/inputs/inputs.scss";
+@import '../../../../../assets/styles/constants/fonts.scss';
+
+.main-login{
+  width: 100%;
+  height: 100vh;
+
+  .login-content{
+    background-color: #ffffff;
+    align-items: center;
+    display: inline-grid;
+    padding: 24px;
+  }
+
+  .welcome{
+    font-family: Montserrat Semibold;
+    font-size: 24px;
+  }
+
+  .imglogin{
+    /*padding: 10% 5% 0%;
+    background: rgb(17,195,254);
+    background: linear-gradient(180deg, rgba(17,195,254,1) 0%, rgba(41,121,227,1) 100%);*/
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .input-title{
+    color: #087021;
+    font-family: Montserrat Semibold;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .input-login{
+    justify-content: center;
+    display: flex;
+    .input-form{
+
+      width: 80%;
+    }
+  }
+
+  .footer{
+    flex-direction: column;
+    .access-logo{
+      margin-right: 10px;
+    }
+  }
+
+  ::ng-deep{
+    .p-button.p-button-outlined {
+      color: #018b35;
+      border: 2px solid #018B35;
+      border-radius: 8px;
+      background-color: #00000000;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+  }
+
+}
+
+
+@media only screen and (max-width: 1600px) {
+
+  /*.main-login .imglogin{
+    padding: 20% 10% 0%;
+  }*/
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+  /*.main-login .imglogin{
+    padding: 35% 5% 0%;
+  }*/
+
+}
+
+@media only screen and (max-width: 992px) {
+
+  /*.main-login .imglogin{
+    padding: 45% 2% 0%;
+  }*/
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  .login-content{
+    height: 100vh;
+    width: 100%;
+  }
+
+  .main-login .welcome{
+    font-size: 18px;
+  }
+
+  .input-login .input-form{
+      width: 100% !important;
+  }
+
+  .sidebar{
+      padding-left: 0px;
+      width: 0px;
+      display: none;
+  }
+
+  .imglogin{
+    padding: 10% 2% 0%;
+    background: rgb(17,195,254);
+    background: linear-gradient(180deg, rgba(17,195,254,1) 0%, rgba(41,121,227,1) 100%);
+    object-fit: fill;
+    width: 100%;
+    height: 80vh;
+    /*object-position: 75% 0px;*/
+  }
+
+}
+

@@ -1,0 +1,36 @@
+{
+  "welcome_back": "¡BIENVENIDO DE NUEVO!",
+  "user_name": "Nombre de usuario",
+  "password": "Contraseña",
+  "login": "Iniciar sesión",
+  "forgot_password": "¿Has olvidado tu contraseña?",
+  "recover": "Recupérala",
+  "have_account": "¿No tienes cuenta?",
+  "recovery_password": {
+    "password_recovery": "Recuperación de contraseñas",
+    "enter_email": "Introduzca su dirección de correo electrónico para recibir el código",
+    "user_name": "Nombre de usuario",
+    "send": "Enviar",
+    "enter_email_code": "Introduzca el código recibido y restablezca su contraseña",
+    "enter_code": "Introduzca el código",
+    "new_password": "Nueva contraseña",
+    "suggestions": "Sugerencias",
+    "required": "Requerido",
+    "pick_password": "Elija una contraseña",
+    "lowercase": "Al menos una minúscula",
+    "uppercase": "Al menos una mayúscula",
+    "numeric": "Al menos un número",
+    "min_characters": "Mínimo 8 caracteres",
+    "special_character": "Al menos un carácter especial",
+    "confirm_password": "Confirmar contraseña",
+    "required_field": "Campo obligatorio",
+    "not_match": "Las contraseñas no coinciden",
+    "cancel": "Cancelar",
+    "change_password": "Cambiar contraseña",
+    "update_password_title": "Su contraseña ha sido actualizada",
+    "update_password_content": "Ahora puedes utilizar tus credenciales para iniciar sesión.",
+    "error_update_password_title": "Se ha producido un error",
+    "error_update_password_content": "La contraseña no pudo ser cambiada. Por favor, verifique su código o contraseña. Asegúrese de que la contraseña tenga un mínimo de 8 caracteres."
+
+  }
+}

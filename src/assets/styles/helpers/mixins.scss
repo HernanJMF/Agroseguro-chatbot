@@ -1,0 +1,68 @@
+/*    MEDIA QUERIES   */
+@mixin for-size($range) {
+    @if $range==phone-portrait-down {
+      @media (max-width: #{$breakpoint-phone-portrait}) {
+        @content;
+      }
+    }
+    @if $range==phone-portrait-up {
+        @media (min-width: #{$breakpoint-phone-portrait}) {
+          @content;
+        }
+    }
+
+    @else if $range==phone-landscape-down {
+      @media (max-width: $breakpoint-phone-landscape) {
+        @content;
+      }
+    }
+    @else if $range==phone-landscape-up {
+        @media (min-width: $breakpoint-phone-landscape) {
+          @content;
+        }
+    }
+
+    @else if $range==tablet-down {
+      @media (max-width: #{$breakpoint-tablet}) {
+        @content;
+      }
+    }
+    @else if $range==tablet-up {
+        @media (min-width: #{$breakpoint-tablet}) {
+          @content;
+        }
+    }
+
+    @else if $range==laptop-down {
+      @media (max-width: $breakpoint-laptop) {
+        @content;
+      }
+    }
+    @else if $range==laptop-up {
+        @media (min-width: $breakpoint-laptop) {
+          @content;
+        }
+    }
+
+    @else if $range==desktop-sm-down {
+      @media (max-width: #{$breakpoint-desktop-sm}) {
+        @content;
+      }
+    }
+    @else if $range==desktop-md-up {
+        @media (min-width: #{$breakpoint-desktop-sm}) {
+          @content;
+        }
+    }
+    
+    @else if $range==desktop-md-down {
+        @media (max-width: #{$breakpoint-desktop-md}) {
+          @content;
+        }
+    }
+    @else if $range==desktop-md-up {
+        @media (min-width: #{$breakpoint-desktop-md}) {
+          @content;
+        }
+    }
+  }

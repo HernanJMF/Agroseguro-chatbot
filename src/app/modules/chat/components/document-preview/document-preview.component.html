@@ -1,0 +1,7 @@
+<div *ngIf="fileUrl; else noDocument">
+  <iframe [src]="fileUrl" width="100%" height="600px" style="border: none;"></iframe>
+</div>
+
+<ng-template #noDocument>
+  <p>No hay documento disponible para visualizar.</p>
+</ng-template>

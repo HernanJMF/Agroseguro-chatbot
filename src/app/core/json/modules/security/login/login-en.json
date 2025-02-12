@@ -1,0 +1,36 @@
+{
+  "welcome_back": "WELCOME BACK!",
+  "user_name": "Email",
+  "password": "Password",
+  "login": "Login",
+  "forgot_password": "Forgot your password?",
+  "recover": "Recover it",
+  "have_account": "Don't have an account?",
+  "recovery_password": {
+    "password_recovery": "Password recovery",
+    "enter_email": "Enter your email address to receive the code",
+    "user_name": "Email",
+    "send": "Send",
+    "enter_email_code": "Enter the code received and reset your password",
+    "enter_code": "Enter the code",
+    "new_password": "New password",
+    "suggestions": "Suggestions",
+    "required": "Required",
+    "pick_password": "Choose a password",
+    "lowercase": "At least one minuscule",
+    "uppercase": "At least one capital letter",
+    "numeric": "At least one number",
+    "min_characters": "Minimum 8 characters",
+    "special_character": "At least one special character",
+    "confirm_password": "Confirm password",
+    "required_field": "Required field",
+    "not_match": "Passwords do not match",
+    "cancel": "Cancel",
+    "change_password": "Change password",
+    "update_password_title": "Your password has been updated",
+    "update_password_content": "You can now use your credentials to log in.",
+    "error_update_password_title": "An error occurred",
+    "error_update_password_content": "The password could not be changed. Please verify your code or password. Make sure the password is a minimum of 8 characters."
+
+  }
+}

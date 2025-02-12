@@ -1,0 +1,111 @@
+.options-content{
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100%;
+    align-items: start;
+    justify-content: center;
+    margin-top: 28px;
+    display: flex;
+    display: inline-grid;
+    padding: 16px;
+    position: relative;
+
+    .version-text {
+      position: absolute;
+      bottom: 6px; /* Ajusta según tu preferencia */
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #087021;
+      font-family: 'Montserrat Regular', sans-serif;
+      font-weight: 300;
+    }
+}
+
+.smartagent-logo{
+    font-family: Passion One;
+    font-size: 55px;
+    color: #262626;
+    margin: 0;
+    line-height: 50px;
+    cursor: pointer;
+    text-align: center;
+    .number{
+        font-family: Passion One;
+        color: #087021;
+        font-size: 55px;
+        line-height: 50px;
+        font-style: normal;
+    }
+}
+
+.powered{
+    font-size: 14px;
+    color: #3a5596;
+    font-family: Montserrat Regular;
+    font-style: normal;
+    font-weight: 300;
+
+}
+
+
+.document-form {
+    width: 100%;
+    margin-bottom: 24px;
+    label{
+        color: #087021;
+        font-family: Montserrat Semibold;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-bottom: 4px;
+    }
+}
+
+ul{
+    padding: 0px;
+}
+
+::ng-deep {
+  .scroll-container {
+    max-height: 150px; /* Ajusta según lo necesario */
+    overflow-y: auto;
+    padding-right: 10px; /* Para evitar que el scroll tape el contenido */
+  }
+
+  a {
+    color: #087021;
+    text-decoration: underline;
+}
+
+
+.document-button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #087021;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.document-button:hover {
+  text-decoration: underline;
+}
+}
+
+@media only screen and (max-width: 1200px) {
+    .chat-body .box-chat .msg-section{
+        padding: 0px 16px;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+    .options-content{
+        align-items: center;
+        margin-top: 0px;
+    }
+}

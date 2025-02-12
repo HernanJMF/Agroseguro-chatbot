@@ -1,0 +1,201 @@
+@import "../../../constants/fonts.scss";
+
+::ng-deep{
+    //input
+    .p-inputtext {
+        width: 100%;
+        height: 50px;
+        font-family: $newtoms-regular-fonts;
+        border-radius: 10px;
+    }
+    .p-inputtext::placeholder {
+        //color: $newtoms-placeholder-font-color;
+        font-family: $newtoms-regular-fonts;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .p-inputtext:enabled:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        //box-shadow: $newtoms-input-box-shadow;
+        border-color: transparent;
+    }
+
+    //normal button
+      .p-button.p-button-text{
+        padding: 8px;
+        font-size: 16px;
+        background: #087021;
+        color: #f5f5f5;
+        text-align: end;
+        border-radius: 8px;
+      }
+      .p-button-text .p-button-label {
+        color: #f5f5f5;
+      }
+
+    //secondary button
+    .secondary .p-button.p-button-text {
+        padding: 8px;
+        font-size: 16px;
+        background: #087021;
+        color: #f5f5f5;
+        text-align: end;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .secondary .p-button.p-button-text:enabled:active {
+        background: #51a4a5dc;
+        color: #f5f5f5;
+        border-color: transparent;
+    }
+
+
+    //danger button
+    .danger .p-button.p-button-text {
+        padding: 8px;
+        font-size: 16px;
+        background: #ef4444;
+        color: #f5f5f5;
+        text-align: end;
+        border-radius: 8px;
+        width: 100%;
+        text-align: center;
+    }
+    .p-button-text.p-button-danger .p-button-label{
+        color: #f5f5f5 !important;
+    }
+    .danger .p-button.p-button-text:enabled:active {
+        background: #da3030d7;
+        color: #f5f5f5;
+        border-color: transparent;
+    }
+
+    //option button
+    .option .p-button.p-button-text{
+        padding: 8px;
+        font-size: 14px;
+        background: transparent;
+        color: #087021;
+        text-align: end;
+        border-radius: 8px;
+      }
+    .option .p-button-text .p-button-label {
+        color: #087021;
+    }
+    .option .p-button.p-button-text:enabled:active {
+        background: #c9cdc99c;
+        color: #087021;
+        border-color: transparent;
+    }
+
+
+
+    //chat
+    .title .p-button-text{
+        padding: 8px;
+        font-size: 16px;
+        text-align: end;
+        border-radius: 30px;
+        font-family: Montserrat Bold;
+      }
+      .p-button-text{
+        padding: 8px;
+        font-size: 16px;
+        text-align: end;
+        border-radius: 30px;
+      }
+      .p-button.p-button-text:enabled:active {
+          background: #0d6923db;
+          color: #f5f5f5;
+          border-color: transparent;
+      }
+      .submit .p-button-text .p-button-label {
+        color: #087021;
+      }
+
+      .p-button-text.p-button-danger .p-button-label {
+        color: #F35657;
+      }
+      .p-button-text.p-button-danger .p-button-icon-left {
+        color: #F35657;
+      }
+
+      .p-button-text.p-button-danger:enabled:active {
+        background: #e7b1b1ab;
+        color: #087021;
+        border-color: transparent;
+      }
+
+      //ticket button
+      .ticket .p-button.p-button-text{
+        padding: 8px;
+        font-size: 16px;
+        background: #f5f5f5;
+        color: #087021;
+        text-align: end;
+        border-radius: 8px;
+      }
+      .ticket .p-button-text .p-button-label {
+        color: #087021;
+      }
+      .ticket .p-button.p-button-text:enabled:active {
+        background: rgba(198, 218, 231, 0.226);
+        color: #087021;
+        border-color: transparent;
+        border-radius: 8px;
+    }
+
+    //chat menu
+    .p-dropdown{
+        width: 100%;
+    }
+    .p-dropdown-label{
+        text-wrap: balance;
+        align-items: center;
+        display: flex;
+        height: auto;
+    }
+    .p-dropdown-item{
+        text-wrap: balance;
+    }
+
+    .p-dropdown-panel .p-dropdown-items{
+        padding: 0;
+    }
+
+    //login
+    .p-password-mask{
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .option .p-button.p-button-text{
+            font-size: 12px;
+          }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .chat-dropdown {
+            .p-dropdown {
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                font-size: 14px;
+                height: 20px;
+                bottom: 8px;
+                left: 20px;
+                position: absolute;
+                z-index: 10;
+                width: 120px !important;
+                .p-dropdown-label {
+                    font-size: 12px;
+                }
+                .p-dropdown-label.p-placeholder{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

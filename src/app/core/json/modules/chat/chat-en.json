@@ -1,0 +1,53 @@
+{
+    "option":{
+        "language_list": [
+            {"name": "Spanish", "value": "spanish"},
+            {"name": "English", "value": "english"}
+        ],
+        "load_topic_list_error": "Could not get list of topics",
+        "dropdown": {
+            "label": "Select a topic",
+            "empty_message": "The topics have not loaded",
+            "empty_filter_message": "No records"
+        },
+        "language": {
+            "label": "Select a language",
+            "empty_filter_message": "No records"
+        },
+        "button": "Talk with Agrobot"
+    },
+    "chat":{
+        "summary": "Hello! I am your NEWTOMS Virtual Assistant. If for any reason my response does not meet your expectations, request help for personalized attention.\n\nAsk me your question!",
+        "generating_answer": "Generating answer",
+        "send": "Sent at",
+        "create_ticket_button": "Create ticket",
+        "ticket_created_button": "Ticket created successfully",
+        "ticket_modal": {
+          "name": {
+            "label": "Name",
+            "required_error": "This field is required"
+            },
+            "email": {
+                "label": "Email",
+                "required_error": "This field is required",
+                "format_error": "The format is not valid"
+            },
+            "description": {
+                "label": "description",
+                "required_error": "This field is required"
+            },
+            "cancel_button": "Cancel",
+            "create_button": "Create"
+        },
+        "copied_message": "The answer has been copied to the clipboard",
+        "ticket_success_message": "The ticket has been created successfully",
+        "ticket_error_message": {
+            "title": "Ticket has not been created",
+            "content": "The ticket could not be generated, please try again later."
+        },
+        "send_error_message": {
+            "title": "Error inesperado",
+            "content": "Could not get the answer to your question, please try again later."
+        }
+    }
+}

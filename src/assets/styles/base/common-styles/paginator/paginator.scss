@@ -1,0 +1,36 @@
+@import "../../../constants/fonts.scss";
+@import "../../../constants/colors.scss";
+
+::ng-deep{
+    .p-paginator {
+        justify-content: flex-end !important;
+        background: transparent;
+        padding: 0px;
+        color: $newtoms-placeholder-font-color;
+        font-family: $newtoms-bold-fonts;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+        background-color: transparent;
+        border: 0 none;
+        color: #6c757d;
+        min-width: 2rem;
+        height: 2rem;
+        margin: 0.143rem;
+        transition: box-shadow 0.2s;
+        border-radius: 50%;
+    }
+
+    .p-link:focus {
+        box-shadow: 0 0 0 0.1rem #6cbddb;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .p-paginator {
+            justify-content: center !important;
+        }
+    }
+}

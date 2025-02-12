@@ -1,0 +1,109 @@
+<div class="options-content">
+  <!------------LOGO SECTION START------------>
+  <div *ngIf="innerWidth < 768">
+    <div class="d-flex justify-content-center align-items-center">
+      <img [src]="'../../../../../assets/images/logo-chat-documental.png'"
+           width="200px" class="img-fluid" alt="">
+    </div>
+    <div class="d-flex justify-content-center">
+      <span class="powered">powered by NEWTOMS AI</span>
+    </div>
+  </div>
+  <!------------LOGO SECTION END------------>
+
+  <!------------FORM SECTION START------------>
+  <form [formGroup]="formGroup">
+    <div *ngIf="innerWidth >= 768" class="">
+      <div class="d-flex justify-content-center align-items-center">
+        <img [src]="'../../../../../assets/images/logo-chat-documental.png'"
+             width="300px" class="img-fluid" alt="">
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="powered">powered by NEWTOMS AI</span>
+      </div>
+    </div>
+          <div class="document-form">
+        <div>
+          <label>{{this.formGroup.controls['language'].value.value == 'english' ? 'Select a language' : 'Seleccione un idioma'}}</label>
+          <p-dropdown formControlName="language"
+                      [options]="languageList"
+                      optionLabel="name"
+                      appendTo="body"
+                      [placeholder]=""
+                      [emptyFilterMessage]="this.formGroup.controls['language'].value.value == 'english' ? 'No records' : 'No hay registros'"
+                      (onChange)="changeLanguage($event.value.value)"
+                      >
+          </p-dropdown>
+        </div>
+        <div class="d-flex justify-content-start">
+            <span *ngIf="formGroup.controls['language'].touched && formGroup.controls['language'].errors?.['required']" class="p-error">
+              {{this.formGroup.controls['language'].value.value == 'english' ? 'Select a language' : 'Seleccione un idioma'}}
+            </span>
+        </div>
+      </div>
+      <div class="document-form">
+        <div>
+          <label>{{this.formGroup.controls['language'].value.value == 'english' ? 'Select a topic' : 'Seleccione un tópico'}}</label>
+        <p-dropdown
+                    formControlName="topic"
+                    [options]="topicList"
+                    optionLabel="topic_name"
+                    appendTo="body"
+                    (onChange)="changeTopic()"
+                    (onClear)="clearTopic()"
+                    [emptyMessage]="formGroup.controls['language'].value.value === 'english' ? 'The topics have not loaded' : 'Los temas no han cargado'"
+                    [placeholder]="formGroup.controls['language'].value.value === 'english' ? 'Select a topic' : 'Seleccione un tópico'"
+                    (onChange)="onTopicChange($event)">
+      </p-dropdown>
+        </div>
+        <div class="d-flex justify-content-start">
+            <span *ngIf="formGroup.controls['topic'].touched && formGroup.controls['topic'].errors?.['required']" class="p-error">
+              {{this.formGroup.controls['language'].value.value == 'english' ? 'Select a topic' : 'Seleccione un tópico'}}
+            </span>
+        </div>
+      </div>
+      <div class="document-form">
+        <div>
+          <p-accordion>
+            <p-accordionTab [header]="topicHeader" [selected]="false">
+              <ng-container *ngIf="documentList && documentList.length > 0; else noDocuments">
+                <div class="scroll-container">
+                  <ul>
+                    <li *ngFor="let document of documentList">
+                      <button class="document-button" (click)="selectDocument(document)" >
+                        {{ document.alias }}
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+              <ng-template #noDocuments>
+                <p>
+                  {{ formGroup.controls['language'].value.value === 'english'
+                    ? 'There are no documents associated with this topic.'
+                    : 'No hay documentos asociados a este tópico.' }}
+                </p>
+              </ng-template>
+            </p-accordionTab>
+          </p-accordion>
+        </div>
+      </div>
+  </form>
+  <!------------FORM SECTION END------------>
+
+  <!------------BUTTON SECTION START------------>
+  <div class="d-flex justify-content-center w-100 title"
+       *ngIf="innerWidth < 768">
+    <button type="button"
+            class="p-button-text"
+            pButton
+            [label]="this.formGroup.controls['language'].value.value == 'english' ? 'Talk with Agrobot' : 'Hablar con Agrobot'"
+            [disabled]="!isValid"
+            (click)="isValid ? submitConfig() : ''">
+    </button>
+  </div>
+  <!------------BUTTON END START------------>
+  <div class="version-text">
+    <span>v1.0.4</span>
+  </div>
+</div>

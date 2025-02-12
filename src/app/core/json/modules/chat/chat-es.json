@@ -1,0 +1,54 @@
+{
+    "option":{
+        "language_list": [
+            {"name": "Español", "value": "spanish"},
+            {"name": "Ingles", "value": "english"}
+        ],
+        "load_topic_list_error": "No se ha podido obtener la lista de tópicos",
+        "dropdown": {
+            "label": "Seleccione un tópico",
+            "empty_message": "Los tópicos no han cargado",
+            "empty_filter_message": "No hay registros"
+        },
+        "language": {
+            "label": "Seleccione un idioma",
+            "empty_filter_message": "No hay registros"
+        },
+        "button": "Hablar con Agrobot"
+    },
+    "chat":{
+        "summary": "Hello! I am your NEWTOMS Virtual Assistant. If for any reason my response does not meet your expectations, request help for personalized attention.\n\nAsk me your question!",
+        "generating_answer": "Generating answer",
+        "send": "Sent at",
+        "create_ticket_button": "Create ticket",
+        "ticket_created_button": "Ticket created successfully",
+        "ticket_modal": {
+          "name": {
+            "label": "Name",
+            "required_error": "This field is required"
+            },
+            "email": {
+                "label": "Email",
+                "required_error": "This field is required",
+                "format_error": "The format is not valid"
+            },
+            "description": {
+                "label": "description",
+                "required_error": "This field is required"
+            },
+            "cancel_button": "Cancel",
+            "create_button": "Create"
+        },
+        "copied_message": "The answer has been copied to the clipboard",
+        "ticket_success_message": "The ticket has been created successfully",
+        "ticket_error_message": {
+            "title": "No se ha creado el ticket",
+            "content": "No se ha podido generar el ticket, inténtelo de nuevo más tarde."
+        },
+        "send_error_message": {
+            "title": "Error inesperado",
+            "content": "Could not get the answer to your question, please try again later."
+        }
+    }
+
+}

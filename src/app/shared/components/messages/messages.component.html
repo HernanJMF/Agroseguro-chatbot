@@ -1,0 +1,12 @@
+<div
+  class="message-container"
+  [ngClass]="{ 'success-message': success, 'error-message': !success }"
+  [@show]="show ? 'open' : 'closed'"
+>
+  <img src="assets/icons/check.svg" *ngIf="success" class="image-message" />
+  <img src="assets/icons/error.svg" *ngIf="!success" class="image-message" />
+  <div class="text-container">
+    <p class="title">{{ title }}</p>
+    <p class="content">{{ content }}</p>
+  </div>
+</div>

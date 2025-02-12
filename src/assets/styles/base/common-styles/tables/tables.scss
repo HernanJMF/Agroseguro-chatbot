@@ -1,0 +1,63 @@
+@import "../../../constants/fonts.scss";
+::ng-deep{
+  .p-datatable .p-datatable-header {
+    background: $newtoms-table-background;
+    border: none;
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .p-datatable .p-datatable-thead > tr > th {
+    color: $newtoms-table-primary-font-color;
+    text-align: center;
+    font-family: $newtoms-bold-fonts;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: solid 1px $newtoms-table-primary-font-color;
+    border-width: 0 0 1px 0;
+    box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: $newtoms-table-background;
+
+  }
+
+  .p-datatable .p-datatable-tbody > tr {
+    background: $newtoms-table-background;
+    color: $newtoms-table-secondary-font-color;
+    text-align: center;
+    font-family: $newtoms-regular-fonts;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+  }
+
+  .p-datatable .p-datatable-tbody > tr > td {
+    text-align: center;
+    border: solid 1px $newtoms-table-primary-font-color;
+    border-width: 0 0 1px 0;
+  }
+
+  .p-datatable .p-paginator-bottom {
+    background: $newtoms-table-background;
+    border:none;
+    border-radius: 0px 0px 20px 20px;
+  }
+
+  .p-paginator .p-paginator-pages .p-paginator-page {
+    min-width: 2rem;
+    height: 2rem;
+  }
+
+  .p-datatable .p-sortable-column:not(.p-highlight):hover {
+    background: $newtoms-table-hover-color;
+    color: $newtoms-table-primary-font-color;
+  }
+
+  .p-datatable.p-datatable-hoverable-rows .p-datatable-tbody > tr:not(.p-highlight):hover {
+    background: $newtoms-table-hover-color;
+    color: $newtoms-table-secondary-font-color;
+  }
+
+}

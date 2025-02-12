@@ -1,0 +1,38 @@
+/*    GENERAL FONTS   */
+$newtoms-light-fonts: "Montserrat Light";
+$newtoms-regular-fonts: "Montserrat Regular";
+$newtoms-medium-fonts: "Montserrat Medium";
+$newtoms-semibold-fonts: "Montserrat Semibold";
+$newtoms-bold-fonts: "Montserrat Bold";
+$newtoms-logo-fonts: "Passion One";
+$font-family: "Montserrat Semibold";
+
+@font-face{
+    font-family: $newtoms-light-fonts;
+    src: url(../../fonts/Montserrat-Light.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: $newtoms-regular-fonts;
+    src: url(../../fonts/Montserrat-Regular.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: $newtoms-medium-fonts;
+    src: url(../../fonts/Montserrat-Medium.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: $newtoms-semibold-fonts;
+    src: url(../../fonts/Montserrat-SemiBold.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: $newtoms-bold-fonts;
+    src: url(../../fonts/Montserrat-Bold.ttf) format("truetype");
+}
+
+@font-face{
+    font-family: $newtoms-logo-fonts;
+    src: url(../../fonts/PassionOne-Regular.ttf) format("truetype");
+}

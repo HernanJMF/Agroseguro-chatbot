@@ -1,0 +1,302 @@
+<div class="row m-0">
+  <div class="col-12 p-0 chat-section">
+  <!------------CHAT SECTION START------------>
+    <!------------Chat navbar section start------------>
+    <div class="user-bar">
+        <div class="information-section">
+            <div class="bot-information">
+                <div class="circle"><i class="newtoms-bot-icon"></i></div>
+                <div class="name">
+                    Agrobot
+                </div>
+            </div>
+        </div>
+        <div class="icon-section">
+            <i class="pi pi-ellipsis-v option-icon" (click)="op.toggle($event)"></i>
+        </div>
+    </div>
+    <!------------Chat navbar section end------------>
+    <!------------body chat section start------------>
+    <div class="chat-body">
+        <div class="scroll-section" #sp>
+          <div class="summary">
+            <p>
+              {{ language === 'english' ?
+                'Hello! I am your Agrobot Assistant. If at any time my response does not meet your expectations, please request help to receive personalized attention.\n\nAsk me your question!'
+                :
+                "¡Hola! Soy tu Asistente Virtual Agrobot. Si en algún momento mi respuesta no cumple con tus expectativas, solicita ayuda para recibir atención personalizada.\n\n!Hazme una pregunta!"
+              }}
+            </p>
+
+            <!-- Si hay un documento seleccionado, mostrar el botón -->
+            <p *ngIf="selectedDocument">
+              Estás chateando con el documento:
+            </p>
+            <button *ngIf="selectedDocument" (click)="showDocumentPreview()" class="document-button">
+              📄 {{ selectedDocument.alias }}.{{ selectedDocument.extension }}
+            </button>
+
+            <!-- Modal de previsualización de documentos -->
+            <p-dialog
+            header="Vista Previa del Documento"
+            [modal]="true"
+            [(visible)]="documentPreview"
+            [style]="{ width: '50rem' }"
+            [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+            [maximizable]="false"
+          >
+
+            <!-- 🔹 Botón para recargar el documento -->
+            <ng-template pTemplate="header">
+              <div class="modal-header">
+                <p-button
+                  icon="pi pi-refresh"
+                  class="reload-button"
+                  [rounded]="true"
+                  severity="secondary"
+                  [outlined]="true"
+                  (click)="reloadDocument()"
+                  title="Recargar Documento"
+                ></p-button>
+              </div>
+            </ng-template>
+
+            <app-document-preview [document]="selectedDocument"></app-document-preview>
+
+          </p-dialog>
+          </div>
+
+            <!------------Messages Section start------------>
+            <div class="box-chat" *ngFor="let message of messages; index as i">
+                <div class="user-details" [ngClass]="{'user-time': message.talker == 'HUMAN', 'bot-time': message.talker == 'AI'}">
+                    <span class="date">{{this.language == 'english' ? 'Sent at' : 'Enviado a las'}} {{formatDate(message.interaction_date) | date: 'h:mm a'}}</span>
+                    <div [ngClass]="{'user-information': message.talker == 'HUMAN', 'bot-information': message.talker == 'AI'}">
+                        <span class="name">
+                            {{message.talker == 'HUMAN' ? "You" : "Agrobot"}}
+                        </span>
+                        <div class="circle" *ngIf="message.talker == 'HUMAN'"><i class="newtoms-user-icon"></i></div>
+                        <div class="circle" *ngIf="message.talker == 'AI'"><i class="newtoms-bot-icon"></i></div>
+                    </div>
+                </div>
+                <div class="msg-section" [ngClass]="{'scale-in-center': message.animation}">
+                    <div    [ngClass]="{'user-message-box': message.talker == 'HUMAN', 'bot-message-box': message.talker == 'AI'}"
+                            *ngIf="!(message.message == '...')">
+                        <div class="icons"
+                            *ngIf="(message.talker == 'AI' && !message.ticket) || (message.message == '...' && !message.ticket)">
+                            <i  class="newtoms-copy-icon"
+                                ngxClipboard
+                                (click)="copyQuestionToClipboard(message.message,i)">
+                            </i>
+                        </div>
+                        <span>{{message.message}}</span>
+                        <div *ngIf="message.talker == 'AI' && !(message.references[0] == 'N/A' || message.references.length == 0)">
+                            <div class="info-title"><span><strong>{{language == 'english' ? 'More information:\n' : 'Mas Información:\n'}}</strong></span></div>
+                            <div class="row m-0">
+                                <div class="col-12 col-lg-6" *ngFor="let reference of message.references">
+                                    <div class="reference" (click)="selectedReference = reference.document; ref.toggle($event)">
+                                        <div class="document"><span>{{reference.document}}</span></div>
+                                        <div class="page">
+                                            <span>{{language == 'english' ? 'pages ' : 'páginas '}}</span>
+                                            <span>{{reference.pages.join(", ")}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="message.ticket" class="ticket mt-2">
+                            <p-button [label]="language == 'english' ? 'Create ticket' : 'Crear ticket'"
+                                      [text]="true"
+                                      [raised]="true"
+                                      *ngIf="!message.checked"
+                                      (click)="openModal(i)">
+                            </p-button>
+                            <p-button [label]="language == 'english' ? 'Ticket created successfully' : 'Ticket creado con éxito'"
+                                      [text]="true"
+                                      [raised]="true"
+                                      *ngIf="message.checked"
+                                      [disabled]="true"
+                                      (click)="openModal(i)">
+                            </p-button>
+                        </div>
+                        <div *ngIf="message.ticketID" class="mt-2">
+                            <span>{{message.ticketID}}</span>
+                        </div>
+                    </div>
+                    <div    [ngClass]="{'user-message-box': message.talker == 'HUMAN', 'bot-message-box': message.talker == 'AI'}"
+                            *ngIf="(message.message == '...')">
+                        <div class="chat-loader"></div>
+                    </div>
+                </div>
+            </div>
+            <!------------Messages Section end------------>
+        </div>
+        <!------------Input Question start------------>
+        <div class="input-section" [ngClass]="{'expired-plan': !activeChat}">
+            <div class="message-textarea" [ngClass]="{'scroll-active': chatMessage.length > 200}">
+                <textarea   [(ngModel)]="chatMessage"
+                            [ngStyle]="{'max-height': '200px'}"
+                            [autoResize]="true"
+                            [maxlength]="2000"
+                            [placeholder]="placeholderText()"
+                            rows="1"
+                            cols="30"
+                            #chatInput
+                            class="chat-textarea"
+                            pInputTextarea
+                            appendTo="body"
+                            (keydown.enter)="onKeydown($event)"
+                            (keyup.enter)="chatMessage.length > 0 ? sendMessage() : ''"
+                            >
+                </textarea>
+                <span class="characters">{{chatMessage.length}} / 2000</span>
+            </div>
+            <div class="send-section">
+                <i  class="newtoms-icon-message"
+                    (click)="chatMessage.length > 0 ? sendMessage() : ''">
+                </i>
+            </div>
+
+        </div>
+        <!------------Input Question end------------>
+    </div>
+    <!------------body chat section end------------>
+  <!------------CHAT SECTION END------------>
+
+  </div>
+</div>
+
+
+<!------------CREATE TICKET SECTION START------------>
+<p-dialog   [(visible)]="visible"
+            [style]="{width: '50vw'}"
+            class="modal-section"
+            [breakpoints]="{ '768px': '80vw', '576px': '95vw'}"
+            [draggable]="false"
+            [modal]="true"
+            [resizable]="false"
+            [closeOnEscape]="false"
+            [closable]="false">
+    <ng-template pTemplate="header">
+        <div class="d-flex justify-content-center w-100">
+        <span class="modal-section-title">{{language == 'english' ? 'Create Ticket' : 'Crear ticket'}}</span>
+        </div>
+    </ng-template>
+    <form [formGroup]="ticketFormGroup" >
+        <div class="share-form row m-0">
+            <div class="col-12 mb-3 mb-sm-4">
+                <div class="justify-content-center">
+                    <span class="label">{{language == 'english' ? 'Name' : 'Nombre'}}</span>
+                    <input  pInputText
+                            formControlName="name"
+                            type="text"
+                            class="input-form"
+                            [ngClass]="{'ng-dirty is-invalid': ticketFormGroup.controls['name'].touched && ticketFormGroup.controls['name'].errors?.['required']}"/>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <!--<span *ngIf="(formGroup.controls['email'].touched && formGroup.get('fullName').errors?.minlength)" class="error-msg invalid-feedback">
+                        Must have a minimun of 3 characters.
+                    </span>
+                    <span *ngIf="(formGroup.controls['email'].touched && formGroup.get('fullName').errors?.maxlength)" class="error-msg invalid-feedback">
+                        Must have a maximum of 64 characters.
+                    </span>-->
+                </div>
+            </div>
+            <div class="col-12 mb-3 mb-sm-4">
+                <div class="justify-content-center">
+                    <span class="label">{{language == 'english' ? 'Email' : 'Correo'}}</span>
+                    <input  pInputText
+                            formControlName="email"
+                            type="text"
+                            class="input-form"
+                            (keyup)="cleanUnnecessaryWhiteSpaces()"
+                            [ngClass]="{'ng-dirty is-invalid': ticketFormGroup.controls['email'].touched && ticketFormGroup.controls['email'].errors?.['required']}"/>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <span *ngIf="ticketFormGroup.controls['email'].touched && ticketFormGroup.controls['email'].errors?.['required']" class="p-error">
+                        {{language == 'english' ? 'This field is required' : 'Este campo es obligatorio'}}
+                    </span>
+                    <span *ngIf="ticketFormGroup.controls['email'].errors?.['email']" class="p-error">
+                        {{language == 'english' ? 'The format is not valid' : 'El formato no es válido'}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-12 mb-3 mb-sm-4">
+                <div class="justify-content-center">
+                    <span class="label">{{language == 'english' ? 'description' : 'Descripción'}}</span>
+                    <textarea rows="5"
+                              cols="30"
+                              pInputTextarea
+                              formControlName="description"
+                              type="text"
+                              class="input-form"
+                              [ngClass]="{'ng-dirty is-invalid': ticketFormGroup.controls['description'].touched && ticketFormGroup.controls['description'].errors?.['required']}">
+
+                    </textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <!--<span *ngIf="(formGroup.controls['email'].touched && formGroup.get('fullName').errors?.minlength)" class="error-msg invalid-feedback">
+                        Must have a minimun of 3 characters.
+                    </span>
+                    <span *ngIf="(formGroup.controls['email'].touched && formGroup.get('fullName').errors?.maxlength)" class="error-msg invalid-feedback">
+                        Must have a maximum of 64 characters.
+                    </span>-->
+                </div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <div class="d-flex justify-content-end align-items-center">
+            <p-button pRipple
+                    [label]="language == 'english' ? 'Cancel' : 'Cancelar'"
+                    class="danger p-button-text p-button-danger"
+                    [text]="true"
+                    [rounded]="true"
+                    (click)="visible = false;">
+            </p-button>
+            <p-button pRipple
+                    [label]="language == 'english' ? 'Create' : 'Crear'"
+                    [disabled]="!isValid"
+                    [text]="true"
+                    [rounded]="true"
+                    (click)="createTicket()">
+            </p-button>
+        </div>
+    </ng-template>
+
+</p-dialog>
+<!------------CREATE TICKET SECTION END------------>
+
+<!--Overlay list option-->
+<p-overlayPanel #op styleClass="ref">
+    <ng-template pTemplate="content">
+        <div class="card-menu-body-light">
+            <div class="card-menu-top" (click)="stepBack()" *ngIf="innerWidth < 768">
+                <div class="icon mr-3">
+                    <i  class="newtoms-redo-icon option-icon"></i>
+                </div>
+                <span class="label p-0">
+                    {{language == 'english' ? 'Back to menu' : 'Volver al menú'}}
+                </span>
+            </div>
+            <div class="card-menu-bottom" (click)="logout()">
+                <div class="icon mr-3">
+                    <i class="pi pi-sign-out"></i>
+                </div>
+                <span class="label p-0">
+                    {{language == 'english' ? 'Sign out' : 'Cerrar Sesión'}}
+                </span>
+            </div>
+        </div>
+
+    </ng-template>
+</p-overlayPanel>
+<!--Overlay list option-->
+
+
+<!--references overlay-->
+<p-overlayPanel #ref>
+    <div class="d-flex justify-content-center align-items-center">
+        <span>{{selectedReference}}</span>
+    </div>
+</p-overlayPanel>
+<!--references overlay-->

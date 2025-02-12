@@ -1,0 +1,32 @@
+{
+  "endpoints": {
+    "register": "/sign-up",
+    "validation_code": "/confirm-user",
+    "login": "/login",
+    "refresh_token": "/refresh-token",
+    "get_document_list": "/chat2dox-documents",
+    "get_document": "/chats",
+    "get_topic_document_list": "/documents-by-topic",
+    "get_recent_documents": "/recent-chats",
+    "get_prompts": "/prompts",
+    "share_questions_chat": "/share-chat-email",
+    "delete_chat": "/chats",
+    "get_users_list": "/users",
+    "get_topic": "/topics",
+    "new_topic": "/topics",
+    "update_topic": "/topics",
+    "update_logos": "/upload-logos",
+    "document_upload": "/chat2dox-documents",
+    "document_upload_pinecone": "/chat2dox-pinecone",
+    "update_profile": "/users",
+    "update_password": "/change-password",
+    "management_plan": "/checkout",
+    "cancel_plan": "/memberships",
+    "buy_credits": "/credits",
+    "payment_list": "/payments",
+    "create_user": "/users",
+    "delete_user": "/users",
+    "recovery_code": "/forgot-password",
+    "forgot_password": "/forgot-password"
+}
+}

@@ -1,0 +1,304 @@
+@import "../../../constants/colors.scss";
+@import "../../../constants/fonts.scss";
+
+.sidebar{
+    z-index: 1000;
+    background: #1A1D20;
+    background-color: $newtoms-primary-color;
+    display: flex;
+    overflow: hidden;
+    &.left{
+        width: 80px;
+        height: 100vh;
+        position: fixed;
+        padding-left: 15px;
+        -webkit-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+        box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar-body{
+        height: 80%;
+        .logo{
+            height: 20%;
+            text-align: start;
+            padding: 16px 0px;
+            .expanded-logo{
+                max-width: 250px;
+                max-height: 80px;
+            }
+            .reduced-logo{
+                max-width: 50px;
+                max-height: 50px;
+            }
+        }
+        .menu{
+            height: 80%;
+            text-align: start;
+            padding: 4px 0px 16px 0px;
+        }
+
+    }
+    .option{
+        padding: 12px;
+        color: $newtoms-alias-font-color;
+        -webkit-transition: all 200ms ease-in;
+        -moz-transition: all 200ms ease-in;
+        transition: all 200ms ease-in;
+        display: flex;
+        align-items: center;
+        white-space: nowrap; // Evita que el texto se divida en varias líneas
+        margin: 4px 0;
+        cursor: pointer;
+       .text{
+            color:$newtoms-logo-font-color;
+            font-family: $newtoms-medium-fonts;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-left: 16px;
+
+       }
+    }
+    .option:hover{
+        color: $newtoms-regular-font-color;
+        border: solid 1px $newtoms-success-font-color;
+        border-radius: 10px;
+        border-right: solid 5px $newtoms-success-font-color;
+        .text{
+            color: $newtoms-logo-font-color;
+            font-family: $newtoms-medium-fonts;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+           }
+    }
+
+    .logout{
+        height: 20%;
+        display: flex;
+        align-items: center;
+        text-align: flex-start;
+        justify-content: flex-start;
+        .text{
+            font-family: $newtoms-medium-fonts;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin-left: 16px;
+
+       }
+    }
+    .active-logout{
+        text-align: flex-start !important;
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+}
+
+.version{
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 8px;
+    margin-left: -15px;
+    width: 100%;
+    text-align: center;
+    color: #f5f5f5;
+}
+
+.switch-light{
+    padding: 12px;
+    color: $newtoms-primary-font-color;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; // Evita que el texto se divida en varias líneas
+    margin: 4px 0;
+    max-height: 48px;
+    cursor: pointer;
+    .separation{
+        margin-left: 16px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sidebar.left:hover{
+    width: 300px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tokens{
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    .total-token{
+        color: #FFF;
+        text-align: center;
+        font-family: $newtoms-semibold-fonts;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        background: #ffffff05;
+        padding: 8px;
+        border-radius: 6px 0px 0px 6px;
+        width: max-content;
+        border: 1px solid #f0f0f005;
+
+        &-collapse{
+            border-radius: 6px;
+            height: 40px;
+        }
+        .icon{
+            color: #0CC0DF;
+            margin-left: 8px;
+            &-collapse{
+                color: #0CC0DF;
+                margin-left: 4px;
+            }
+        }
+
+    }
+    .upgrade-button{
+        background: $newtoms-secondary-color;
+        padding: 8px;
+        border-radius: 0px 6px 6px 0px;
+        color: #FFF;
+        font-family: $newtoms-semibold-fonts;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .upgrade-button:hover{
+        font-family: $newtoms-bold-fonts;
+        font-weight: 700;
+        background: $newtoms-chat-detail-background-hover;
+        cursor: pointer;
+    }
+}
+
+::ng-deep{
+    .p-sidebar-left {
+        top: 0;
+        left: 0;
+        width: 20rem;
+        height: 100%;
+        background: $newtoms-primary-color;
+        color: #f5f5f5;
+    }
+
+    .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+        background: #56dd42;
+    }
+
+    .p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider{
+        background: #1fa50a;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .sidebar.left{
+        padding-left: 0px;
+        width: 0px; 
+
+    }
+
+}
+
+
+
+.newtoms-home {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/home_alt.svg");
+    mask-image: url('../../../../icons/home_alt.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 26.4px;
+}
+
+.newtoms-bag {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/bag.svg");
+    mask-image: url('../../../../icons/bag.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 21.6px;
+}
+
+.newtoms-comment {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/comment.svg");
+    mask-image: url('../../../../icons/comment.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 21.6px;
+}
+
+.newtoms-users-alt {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/users-alt.svg");
+    mask-image: url('../../../../icons/users-alt.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 19.2px;
+}
+
+.newtoms-cog {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/cog.svg");
+    mask-image: url('../../../../icons/cog.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 24px;
+}
+
+.newtoms-sun {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/sun.svg");
+    mask-image: url('../../../../icons/sun.svg');
+    background-color: $newtoms-sidebar-icon-color; /* Or any color of your choice. */
+    width: 24px;
+    height: 24px;
+}
+
+.newtoms-signout {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/signout.svg");
+    mask-image: url('../../../../icons/signout.svg');
+    background-color: #f5f5f5; /* Or any color of your choice. */
+    width: 24px;
+    height: 30px;
+}
+
+.newtoms-credits {
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image: url("../../../../icons/credits.svg");
+    mask-image: url('../../../../icons/credits.svg');
+    background-color: $newtoms-secondary-color; /* Or any color of your choice. */
+    width: 20px;
+    height: 17px;
+    display: inline-flex;
+}
+
+.newtoms-hashtag{
+    color: $newtoms-sidebar-icon-color;
+    font-size: 24px;
+}
