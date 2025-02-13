@@ -6,15 +6,23 @@ workflows:
     environment:
       vars:
         APP_ID: "com.agroseguro.chatdocumental"
-        XCODE_PROJECT: "ios/App.xcodeproj"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"  # ⚠️ Corrige la ruta al proyecto Xcode
         XCODE_SCHEME: "App"
     scripts:
+      - name: Debug - Verificar directorios antes de instalar dependencias
+        script: |
+          pwd
+          ls -la
+          ls -la ios
+          ls -la ios/App
       - name: Instalar dependencias y compilar la app
         script: |
           npm install
-          npm run build  # Agregar este paso para generar la carpeta www
+          npm run build  # Generar la carpeta www
           npx cap sync ios
-          cd ios && pod install && cd ..
+          cd ios/App  # ⚠️ Cambia a la carpeta correcta donde está el Podfile
+          pod install
+          cd ../..
       - name: Construir la app
         script: |
-          xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" -sdk iphoneos -configuration Release build
+          xcodebuild -workspace "ios/App/App.xcworkspace" -scheme "$XCODE_SCHEME" -sdk iphoneos -configuration Release build
